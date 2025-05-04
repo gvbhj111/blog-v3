@@ -8,27 +8,27 @@ export { zhCN as dateLocale } from 'date-fns/locale/zh-CN'
 // 存储 nuxt.config 和 app.config 共用的配置
 // 此处为启动时需要的配置，启动后可变配置位于 app/app.config.ts
 const blogConfig = {
-    title: '纸鹿摸鱼处',
-    subtitle: '纸鹿至麓不知路，支炉制露不止漉',
+    title: '灵亡歇息处',
+    subtitle: '灵魂之所，亡者所安',
     // 长 description 利好于 SEO
-    description: '纸鹿本鹿的个人博客，分享技术与生活。“折腾不止，摸鱼生活——摸门🙏🏻”。纸鹿是一名开源爱好者，结识了许多志同道合的朋友。这个博客记录了他在生活和技术学习中的点滴经历，充满启发与思考。网站界面简洁美观，内容丰富实用，人气互动活跃，涵盖了编程、生活、学习等多个领域，为读者提供了卓越的阅读体验。',
+    description: '灵亡的个人博客，分享一点点技术与生活。“折腾不止，生命不息”。我是一名开源爱好者（？）。这个博客记录了他在生活和学习中的点滴经历，充满启发与思考。为读者提供了卓越的阅读体验。',
     author: {
-        name: '纸鹿本鹿',
-        avatar: 'https://www.zhilu.cyou/api/avatar.png',
-        email: 'hi@zhilu.cyou',
-        homepage: 'https://www.zhilu.cyou/',
+        name: '灵亡',
+        avatar: 'https://img.picui.cn/free/2025/05/01/6813227e2fca3.jpg',
+        email: 'gvbhj2019@163.com',
+        homepage: 'https://lingwang.netlify.app/',
     },
     copyright: {
         abbr: 'CC BY-NC-SA 4.0',
         name: '署名-非商业性使用-相同方式共享 4.0 国际',
         url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans',
     },
-    favicon: 'https://www.zhilu.cyou/api/icon.png',
+    favicon: 'https://img.picui.cn/free/2025/05/01/6813227e2fca3.jpg',
     language: 'zh-Hans',
-    qqGroup: '169994096',
-    timeEstablished: '2019-07-19',
+    qqGroup: '000000000',
+    timeEstablished: '2025-03-15',
     timezone: 'Asia/Shanghai',
-    url: 'https://blog.zhilu.cyou/',
+    url: 'https://lingwang.netlify.app/',
 
     feed: {
         limit: 50,
@@ -48,9 +48,9 @@ const blogConfig = {
 
     scripts: [
         // 自己部署的 Umami 统计服务
-        { 'src': 'https://zhi.zhilu.cyou/zhi.js', 'data-website-id': 'a1997c81-a42b-46f6-8d1d-8fbd67a8ef41', 'defer': true },
+        { 'src': 'https://zhi.zhilu.cyou/zhi.js', 'data-website-id': 'a1997c81-a42b-46f6-8d1d-8fbd67a8ef41', 'defer': flase },
         // Cloudflare Insights 统计服务
-        { 'src': 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "97a4fe32ed8240ac8284e9bffaf03962"}', 'defer': true },
+        { 'src': 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "97a4fe32ed8240ac8284e9bffaf03962"}', 'defer': flase },
     ],
 
     // 用于 Shiki、Plain Shiki 引入代码高亮
@@ -67,15 +67,14 @@ const blogConfig = {
     twikoo: {
         js: 'https://gcore.jsdelivr.net/npm/twikoo@1.6.40/dist/twikoo.all.min.js',
         // 自己部署的 Twikoo 服务
-        envId: 'https://twikoo.zhilu.cyou/',
-        preload: 'https://twikoo.zhilu.cyou/',
+         envId: 'https://lw-blog-database.netlify.app/.netlify/functions/twikoo',
     },
 }
 
 // 用于生成 OPML 和友链页面配置
 export const myFeed = <FeedEntry>{
     author: blogConfig.author.name,
-    sitenick: '摸鱼处',
+    sitenick: '歇息处',
     title: blogConfig.title,
     desc: blogConfig.subtitle || blogConfig.description,
     link: blogConfig.url,
@@ -86,6 +85,7 @@ export const myFeed = <FeedEntry>{
     date: blogConfig.timeEstablished,
     comment: '这是我自己',
 }
+
 
 // 将旧页面永久重定向到新页面
 const redirectRouteRules = Object.entries(redirectList)
