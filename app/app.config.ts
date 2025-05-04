@@ -41,9 +41,8 @@ export default defineAppConfig({
         copyright: `© ${new Date().getFullYear()} ${blogConfig.author.name}`,
          iconNav: [
             { icon: 'ph:house-bold', text: '个人主页', url: blogConfig.author.homepage },
-            { icon: 'ri:qq-line', text: '交流群: 00000000', url: 'https://jq.qq.com/?_wv=1027&k=lQfNSeEd' },
+            { icon: 'ri:qq-line', text: 'QQ: 3506828655', url: 'https://qm.qq.com/cgi-bin/qm/qr?k=HO_p4boXfBxrr4DnaOCM4WavkFqpEDoW' },
             { icon: 'ph:github-logo-bold', text: 'GitHub: gvbhj111', url: 'https://github.com/gvbhj111' },
-            { icon: 'ph:rss-simple-bold', text: 'Atom订阅', url: '/atom.xml' },
             { icon: 'ph:subway-bold', text: '开往', url: 'https://www.travellings.cn/go-by-clouds.html' },
         ] satisfies NavItem[],
         /** 页脚站点地图 */
@@ -51,7 +50,6 @@ export default defineAppConfig({
             {
                 title: '探索',
                 items: [
-                    { icon: 'ph:rss-simple-bold', text: 'Atom订阅', url: '/atom.xml' },
                     { icon: 'ph:subway-bold', text: '开往', url: 'https://www.travellings.cn/go-by-clouds.html' },
                     { icon: 'ph:flying-saucer-bold', text: '异次元旅行', url: 'https://travel.moe/go.html?travel=on' },
                 ],
@@ -113,7 +111,7 @@ export default defineAppConfig({
         /** 归档页面每年标题对应的年龄 */
         birthYear: 2008,
         /** blog-stats widget 的预置文本 */
-        wordCount: '约10万不到',
+        wordCount: '约10万',
     },
 
     themes: {
