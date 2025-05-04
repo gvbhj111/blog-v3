@@ -1,6 +1,7 @@
 import process from 'node:process'
 import blogConfig, { routeRules } from './blog.config'
 
+// 此处配置无需修改
 export default defineNuxtConfig({
     app: {
         head: {
@@ -13,36 +14,40 @@ export default defineNuxtConfig({
                 { rel: 'preconnect', href: blogConfig.twikoo.preload },
 
                 { rel: 'preconnect', href: 'https://cdn-font.hyperos.mi.com' },
+                // 浏览器渲染中文 VF 字重有问题
                 { rel: 'stylesheet', href: 'https://cdn-font.hyperos.mi.com/font/css?family=MiSans_VF:VF:Chinese_Simplify,Latin&display=swap', media: 'none', onload: 'this.media="all"' },
+                // https://cdn-font.hyperos.mi.com/font/css?family=MiSans:100,200,300,400,450,500,600,650,700,900:Chinese_Simplify,Latin&display=swap
 
                 { rel: 'preconnect', href: 'https://fonts.googleapis.cn' },
                 { rel: 'preconnect', href: 'https://fonts.gstatic.cn', crossorigin: '' },
                 { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap', media: 'none', onload: 'this.media="all"' },
+                // Fira Code 没有斜体
+                // { rel: 'stylesheet', href: 'https://fonts.googleapis.cn/css2?family=Fira+Code:wght@300..700&family=Noto+Serif+SC:wght@200..900&display=swap', media: 'none', onload: 'this.media="all"' },
+
+                // { rel: 'stylesheet', href: 'https://gcore.jsdelivr.net/npm/nerdfonts-web/nf.min.css' },
             ],
             meta: [
                 { name: 'author', content: `${blogConfig.author.name} <${blogConfig.author.email}>` },
+                // 此处为元数据的生成器标识，不建议修改
                 { 'name': 'generator', 'content': 'blog-v3', 'data-github-repo': 'https://github.com/L33Z22L11/blog-v3' },
             ],
             templateParams: {
                 separator: '|',
             },
             titleTemplate: `%s %separator ${blogConfig.title}`,
-            script: [
-                ...blogConfig.scripts,
-                { src: 'https://polyfill.io/v3/polyfill.min.js?features=es6' },
-                { id: 'MathJax-script', async: true, src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' }
-            ]
+            script: blogConfig.scripts,
         },
         rootId: 'z-root',
     },
 
-    // 其他配置保持不变
     compatibilityDate: '2024-08-03',
+
     components: [
         { path: '~/components/partial', prefix: 'Z' },
         { path: '~/components/zhilu', prefix: 'Zhilu', global: true },
         '~/components',
     ],
+
     css: [
         '@/assets/css/animation.scss',
         '@/assets/css/article.scss',
@@ -50,21 +55,29 @@ export default defineNuxtConfig({
         '@/assets/css/main.scss',
         '@/assets/css/reusable.scss',
     ],
+
+    // https://github.com/nuxt/devtools/issues/761
+    // 修了多久了，还整天内存泄漏
     devtools: {
         enabled: false,
     },
+
     features: {
         inlineStyles: false,
     },
+
     future: {
         compatibilityVersion: 4,
     },
+
     routeRules,
+
     runtimeConfig: {
         public: {
             buildTime: new Date().toISOString(),
         },
     },
+
     vite: {
         css: {
             preprocessorOptions: {
@@ -78,6 +91,7 @@ export default defineNuxtConfig({
             allowedHosts: true,
         },
     },
+
     modules: [
         '@nuxt/content',
         '@nuxt/icon',
@@ -88,11 +102,13 @@ export default defineNuxtConfig({
         '@vueuse/nuxt',
         '@zinkawaii/nuxt-shiki',
     ],
+
     colorMode: {
         preference: 'system',
         fallback: 'light',
         classSuffix: '',
     },
+
     content: {
         experimental: {
             search: {},
@@ -109,19 +125,24 @@ export default defineNuxtConfig({
             toc: { depth: 4, searchDepth: 4 },
         },
     },
+
     icon: {
         customCollections: [
             { prefix: 'zi', dir: './app/assets/icons' },
         ],
     },
+
     image: {
+        // Netlify 需要特殊处理
         provider: process.env.NUXT_IMAGE_PROVIDER,
         domains: blogConfig.imageDomains,
         format: ['avif', 'webp'],
     },
+
     robots: {
         disallow: blogConfig.robotsNotIndex,
     },
+
     shiki: {
         bundledLangs: blogConfig.shiki.bundledLangs,
         bundledThemes: blogConfig.shiki.themes,
@@ -131,6 +152,7 @@ export default defineNuxtConfig({
             dark: blogConfig.shiki.darkTheme,
         },
     },
+
     site: {
         name: blogConfig.title,
         url: blogConfig.url,
