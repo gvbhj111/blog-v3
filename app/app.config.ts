@@ -39,14 +39,14 @@ export default defineAppConfig({
     footer: {
         /** 页脚版权信息 */
         copyright: `© ${new Date().getFullYear()} ${blogConfig.author.name}`,
-         iconNav: [
+         iconNav: <NavItem[]>[
             { icon: 'ph:house-bold', text: '个人主页', url: blogConfig.author.homepage },
             { icon: 'ri:qq-line', text: 'QQ: 3506828655', url: 'https://qm.qq.com/cgi-bin/qm/qr?k=HO_p4boXfBxrr4DnaOCM4WavkFqpEDoW' },
             { icon: 'ph:github-logo-bold', text: 'GitHub: gvbhj111', url: 'https://github.com/gvbhj111' },
             { icon: 'ph:subway-bold', text: '开往', url: 'https://www.travellings.cn/go-by-clouds.html' },
-        ] satisfies NavItem[],
+        ] ,
         /** 页脚站点地图 */
-        nav: [
+        nav: <Nav> [
             {
                 title: '探索',
                 items: [
@@ -94,7 +94,18 @@ export default defineAppConfig({
         allowAscending: false,
     },
 
-    
+    /** 左侧栏导航 */
+    nav: <Nav>[
+        {
+            title: '',
+            items: [
+                { icon: 'ph:files-bold', text: '文章', url: '/' },
+                { icon: 'ph:link-bold', text: '友链', url: '/link' },
+                { icon: 'ph:archive-bold', text: '归档', url: '/archive' },
+            ],
+        },
+    ] ,
+
     
     stats: {
         /** 归档页面每年标题对应的年龄 */
