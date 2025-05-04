@@ -46,12 +46,7 @@ const blogConfig = {
     // 禁止搜索引擎收录的路径
     robotsNotIndex: ['/preview', '/previews/*'],
 
-    scripts: [
-        // 自己部署的 Umami 统计服务
-        { 'src': 'https://zhi.zhilu.cyou/zhi.js', 'data-website-id': 'a1997c81-a42b-46f6-8d1d-8fbd67a8ef41', 'defer': flase },
-        // Cloudflare Insights 统计服务
-        { 'src': 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "97a4fe32ed8240ac8284e9bffaf03962"}', 'defer': flase },
-    ],
+    
 
     // 用于 Shiki、Plain Shiki 引入代码高亮
     // 同时用于显示代码块语言对应的 Iconify Catppuccin 图标
