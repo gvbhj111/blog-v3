@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { sort } from 'radash'
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
 const appConfig = useAppConfig()
 useSeoMeta({
@@ -13,7 +12,7 @@ layoutStore.setAside(['blog-stats', 'connectivity'])
 
 const { data: listRaw } = await useAsyncData(
     'posts_index',
-    () => queryContent<ParsedContent>()
+    () => queryContent()
         .only(['_path', 'categories', 'image', 'date', 'description', 'readingTime', 'recommend', 'title', 'updated'])
         .where({ _original_dir: { $eq: '/posts' } })
         .find(),
@@ -59,7 +58,7 @@ const listRecommended = computed(() => sort(
                 :categories
             />
         </div>
-        <NuxtPage :list="listPaged" :sort-order :category="category" />
+        <NuxtPage :list="listPaged" :sort-order />
         <ZPagination v-model="page" :total-pages />
     </div>
 </template>
@@ -77,7 +76,7 @@ const listRecommended = computed(() => sort(
     transition: all 0.2s 1s, color 0.2s;
     z-index: -1;
 
-    & :hover {
+    :hover > & {
         opacity: 1;
         color: var(--c-primary);
         z-index: 0;
