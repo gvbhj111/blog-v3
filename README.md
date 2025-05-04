@@ -1,24 +1,3 @@
-# 纸鹿摸鱼处
-
-![框架](https://img.shields.io/badge/框架-Nuxt-00DC82?logo=Nuxt.js)
-![CMS](https://img.shields.io/badge/CMS-Nuxt%20Content-00DC82?logo=Nuxt.js)
-![部署平台](https://img.shields.io/badge/部署平台-Vercel-000000?logo=Vercel)
-![访问统计](https://img.shields.io/badge/访问统计-Umami-000000?logo=Umami)
-![代码风格](https://img.shields.io/badge/代码风格-ESLint-4B32C3?logo=ESLint)
-![代码风格](https://img.shields.io/badge/代码风格-Stylelint-263238?logo=Stylelint)
-
-我的第三代个人博客，于 2024 年 8 月 11 日上线。
-
-## 使用本主题的博客
-
-- [纸鹿摸鱼处 @L33Z22L11](https://blog.zhilu.cyou/) · [开发经历](https://blog.zhilu.cyou/2024/blog-using-nuxt)
-- [希乐博客 @Xlenco](https://blog.xlenco.top/)
-- [SteinsNote @Labmem-00](https://blog.labmem.chat/) · [迁移经历](https://blog.labmem.chat/2024/beforeeverything)
-- [月空人 @Whbbit1999](https://whbbit.cn/) · [迁移评价](https://whbbit.cn/2025/why-migrate-to-nuxt)
-- [地球驿站 @mugzx](https://blog.mugzx.top/) · [迁移记录](https://blog.mugzx.top/)
-- [克喵的小栈 @Kemeow815](https://blog-v3.kemeow.top/)
-- [梦爱吃鱼 @JLinmr](https://blog.ruom.top/)
-- [Mikuの极光星 @PaloMiku](https://blog.sotkg.com/)
 
 ## 特性
 
