@@ -94,18 +94,7 @@ export default defineAppConfig({
         allowAscending: false,
     },
 
-    /** 左侧栏导航 */
-    nav: [
-        {
-            title: '',
-            items: [
-                { icon: 'ph:files-bold', text: '文章', url: '/' },
-                { icon: 'ph:link-bold', text: '友链', url: '/link' },
-                { icon: 'ph:archive-bold', text: '归档', url: '/archive' },
-            ],
-        },
-    ] ,
-
+    
     
     stats: {
         /** 归档页面每年标题对应的年龄 */
