@@ -5,8 +5,8 @@ date: 2025-03-14 15:00:56
 updated: 2025-05-03 18:22:51
 image: https://cdn.pixabay.com/photo/2015/03/22/15/26/blog-684748_640.jpg
 type: story
-categories: [study]
-tags: [study, about]
+categories: []
+tags: []
 ---
 
 Hello！欢迎！这是我的第一篇博客~
