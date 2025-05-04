@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { sort } from 'radash'
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
 const appConfig = useAppConfig()
 useSeoMeta({
@@ -13,7 +12,7 @@ layoutStore.setAside(['blog-stats', 'connectivity'])
 
 const { data: listRaw } = await useAsyncData(
     'posts_index',
-    () => queryContent<ParsedContent>()
+    () => queryContent()
         .only(['_path', 'categories', 'image', 'date', 'description', 'readingTime', 'recommend', 'title', 'updated'])
         .where({ _original_dir: { $eq: '/posts' } })
         .find(),
@@ -59,7 +58,13 @@ const listRecommended = computed(() => sort(
                 :categories
             />
         </div>
-        <NuxtPage :list="listPaged" :sort-order :category="category" />
+        <div class="article-list">
+            <article v-for="item in listPaged" :key="item._path">
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.description }}</p>
+                <!-- more article content -->
+            </article>
+        </div>
         <ZPagination v-model="page" :total-pages />
     </div>
 </template>
@@ -74,10 +79,11 @@ const listRecommended = computed(() => sort(
 .preview-entrance {
     position: relative;
     opacity: 0;
-    transition: all 0.2s 1s, color 0.2s;
+    transition: opacity 0.2s, color 0.2s;
+    transition-delay: 1s, 0s;
     z-index: -1;
 
-    & :hover {
+    :hover > & {
         opacity: 1;
         color: var(--c-primary);
         z-index: 0;
