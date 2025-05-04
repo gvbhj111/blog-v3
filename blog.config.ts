@@ -83,11 +83,7 @@ export const myFeed = <FeedEntry>{
 
 
 // 将旧页面永久重定向到新页面
-const redirectRouteRules = Object.entries(redirectList)
-    .reduce<NitroConfig['routeRules']>((acc, [from, to]) => {
-        acc![from] = { redirect: { to, statusCode: 301 } }
-        return acc
-    }, {})
+
 
 // https://nitro.build/config#routerules
 // @keep-sorted
