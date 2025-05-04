@@ -12,7 +12,7 @@ export default defineAppConfig({
         categories: <{ [category: string]: { icon: string, color?: string } }>{
             经验分享: { icon: 'ph:mouse-bold', color: '#3af' },
             生活: { icon: 'ph:shooting-star-bold', color: '#3ba' },
-            代码: { icon: 'ph:code-bold', color: '#77f' },
+            学习: { icon: 'fluent-mdl2:learning-tools', color: '#0284c7' },
             未分类: { icon: 'ph:folder-dotted-bold' },
         },
         defaultCategoryIcon: 'ph:folder-bold',
@@ -62,14 +62,14 @@ export default defineAppConfig({
                     { icon: 'ph:github-logo-bold', text: 'gvbhj111', url: 'https://github.com/gvbhj111' },
                     { icon: 'ri:qq-line', text: 'QQ: 3506828655', url: 'https://qm.qq.com/cgi-bin/qm/qr?k=HO_p4boXfBxrr4DnaOCM4WavkFqpEDoW' },
                     { icon: 'ph:envelope-simple-bold', text: blogConfig.author.email, url: `mailto:${blogConfig.author.email}` },
-                    { icon: 'fa6-brands:bilibili', url: `http://space.bilibili.com/1025980789/` },
+                    { icon: 'fa6-brands:bilibili',text: 'Bilibili', url: `http://space.bilibili.com/1025980789/` },
                 ],
             },
             {
                 title: '信息',
                 items: [
                     { icon: 'simple-icons:nuxtdotjs', text: 'Nuxt开源博客主题', url: 'https://github.com/L33Z22L11/blog-v3' },
-                    { icon: 'ph:swatches-bold', text: '主题和组件文档', url: '/theme' },
+                    { icon: 'ph:swatches-bold', text: '主题和组件文档', url: 'https://blog.zhilu.cyou/theme' },
                     { icon: 'ph:certificate-bold', text: '萌ICP备20252027号', url: 'https://icp.gov.moe/?keyword=20252027' },
                 ],
             },
@@ -106,14 +106,9 @@ export default defineAppConfig({
                 { icon: 'ph:archive-bold', text: '归档', url: '/archive' },
             ],
         },
-    ] satisfies Nav,
+    ] ,
 
-    /** 风格化 blog-stats widget */
-    seasonal: {
-        // widgetBackground: 'https://wsrv.nl/?url=i2.hdslb.com/bfs/archive/46165212e09842103752c453d7987a470059760b.jpg@320w',
-        // emoji: '🧧',
-    },
-
+    
     stats: {
         /** 归档页面每年标题对应的年龄 */
         birthYear: 2008,
