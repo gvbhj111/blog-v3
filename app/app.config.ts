@@ -99,8 +99,6 @@ export default defineAppConfig({
         {
             title: '',
             items: [
-                { icon: 'ph:files-bold', text: '文章', url: 'https://lingwang.netlify.app/' },
-                { icon: 'ph:link-bold', text: '友链', url: '/link' },
                 { icon: 'ph:archive-bold', text: '归档', url: '/archive' },
             ],
         },
