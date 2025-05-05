@@ -37,11 +37,7 @@ const blogConfig = {
     // 在 URL 中隐藏的路径前缀
     hideContentPrefixes: ['/posts'],
 
-    imageDomains: [
-        // 自动启用本域名的 Nuxt Image
-        // 'www.zhilu.cyou',
-        // '7.isyangs.cn',
-    ],
+    
 
     // 禁止搜索引擎收录的路径
     robotsNotIndex: ['/preview', '/previews/*'],
@@ -96,7 +92,6 @@ export const routeRules = <NitroConfig['routeRules']>{
     '/api/stats': { prerender: true, headers: { 'Content-Type': 'application/json' } },
     '/atom.xml': { prerender: true, headers: { 'Content-Type': 'application/xml' } },
     '/favicon.ico': { redirect: { to: blogConfig.favicon } },
-    '/zhilu.opml': { prerender: true, headers: { 'Content-Type': 'application/xml' } },
 }
 
 export default blogConfig
