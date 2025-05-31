@@ -2,24 +2,7 @@
 const appConfig = useAppConfig()
 </script>
 
-<template>
-    <h3 class="widget-title">
-        可访问性
-    </h3>
-    <div
-        class="widget-card seasonal"
-        :style="{
-            '--seasonal-bg': `url(${appConfig.seasonal.widgetBackground})`,
-            '--seasonal-emoji': appConfig.seasonal.emoji,
-        }"
-    >
-        <!-- TODO: 优化技术架构展示 -->
-        <p>托管于 Netliy；博客由 Nuxt Content 驱动。</p>
-        <p>
-            欢迎访问~
-        </p>
-    </div>
-</template>
+
 
 <style lang="scss" scoped>
 .seasonal {
@@ -28,7 +11,7 @@ const appConfig = useAppConfig()
     z-index: 0;
 
     &::before {
-        content: "";
+        content: "/";
         position: absolute;
         opacity: 0.2;
         inset: 0;
