@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { myFeed } from '~~/blog.config'
 import friends from '~/friends'
-import subscriptions from '~/subscriptions'
+
 
 const appConfig = useAppConfig()
 const layoutStore = useLayoutStore()
@@ -33,48 +33,16 @@ const { data: postLink } = await useAsyncData('/link', () => queryContent('/link
                     {{ appConfig.qqGroup }}
                 </Tip> 闲聊或技术交流。
             </p>
+            <!-- 暂时注释掉 OPML 相关内容
             <p>
                 我制作了本站的
-                <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
                 <ProseA href="/zhilu.opml">友链源 OPML 聚合</ProseA>，可导入阅读器或
-                <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
                 <ProseA href="https://app.follow.is/share/lists/72840182614552576">订阅 Folo List</ProseA>。
             </p>
+            -->
         </div>
-        <div class="operations">
-            <ProseA href="/atom.xml" icon="ph:rss-simple-bold">
-                订阅源
-            </ProseA>
-            <ProseA href="https://app.follow.is/share/feeds/62533754566736896" icon="ph:list-plus-bold">
-                在 Folo 上订阅
-            </ProseA>
-        </div>
+        <!-- ...rest of the template... -->
     </header>
-
-    <FeedGroup label="友链" :feeds="friends" />
-    <FeedGroup label="订阅" :feeds="subscriptions" />
-
-    <Tab :tabs="['我的博客信息', '申请友链']" center>
-        <template #tab1>
-            <div class="link-tab">
-                <FeedCard v-bind="myFeed" />
-                <Copy v-for="(code, prompt) in copyFields" :key="prompt" :prompt :code />
-            </div>
-        </template>
-        <template #tab2>
-            <ContentRendererMarkdown
-                v-if="postLink"
-                :value="postLink"
-                class="article"
-                tag="article"
-            />
-            <p v-else class="text-center">
-                可于 link.md 配置友链补充说明。
-            </p>
-        </template>
-    </Tab>
-
-    <PostComment key="/link" />
 </template>
 
 <style lang="scss" scoped>
